@@ -20,7 +20,7 @@ document.querySelector('button[type="submit"]').addEventListener('click', (e) =>
     const options = {
         method: "POST",
         headers: { "Content-Type": "application/json; charset=utf-8" },
-        body: JSON.stringify({ pageToScreenshot: pageToScreenshot })
+        body: JSON.stringify({ url: pageToScreenshot })
     };
 
     document.getElementById('result').textContent = "Please wait..."
