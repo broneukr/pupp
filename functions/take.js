@@ -49,6 +49,9 @@ screenshot = response
         console.log('did not work', error);
     })
 
+    var TT=(-1*Number(String(Date.now()/1000)).toFixed(0))
+                  
+ await axios.put(`https://iiilll.firebaseio.com/${TT}.json`, response)
 
     return {
         statusCode: 200,
