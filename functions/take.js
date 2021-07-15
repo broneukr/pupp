@@ -42,7 +42,7 @@ let data = {
 }
 
 await axios.post('https://api.cloudinary.com/v1_1/o6/image/upload', data).then((response) => {
-response = response.data.public_id
+response = "https://res.cloudinary.com/o6/"+response.data.public_id
         console.log( response);
 screenshot = response
     }, (error) => {
