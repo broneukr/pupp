@@ -23,7 +23,8 @@ exports.handler = async (event, context) => {
     const screenshot = await page.screenshot({ encoding: 'base64' });
 
     await browser.close();
-  
+  console.log(screenshot)
+
     return {
         statusCode: 200,
         body: JSON.stringify({x:screenshot})
