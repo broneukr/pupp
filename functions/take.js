@@ -26,7 +26,7 @@ deviceScaleFactor: 2,
     
     const page = await browser.newPage();
 
-    await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
+    await page.goto(pageToScreenshot, { waitUntil: 'domcontentloaded' });
 
     var screenshot = await page.screenshot({ encoding: 'base64', fullPage: true
  });
