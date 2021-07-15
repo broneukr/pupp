@@ -8,7 +8,7 @@ exports.handler = async (event, context) => {
         statusCode: 400,
         body: JSON.stringify({ message: 'Page URL not defined' })
     }
-
+console.log(pageToScreenshot)
     const browser = await chromium.puppeteer.launch({
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
@@ -20,15 +20,15 @@ exports.handler = async (event, context) => {
 
     await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
 
-    const screenshot = await page.screenshot({ encoding: 'binary' });
+    const screenshot = await page.screenshot({ encoding: 'base64' });
 
     await browser.close();
+console.log(screenshot)
   
     return {
         statusCode: 200,
         body: JSON.stringify({ 
-            message: `Complete screenshot of ${pageToScreenshot}`, 
-            buffer: screenshot 
+            message: `${screenshot}`
         })
     }
 
