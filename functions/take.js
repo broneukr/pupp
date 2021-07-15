@@ -41,7 +41,8 @@ let data = {
 }
 
 await axios.post('https://api.cloudinary.com/v1_1/o6/image/upload', data).then((response) => {
-        console.log('worked', response);
+response = response.data
+        console.log( response);
 screenshot = response
     }, (error) => {
         console.log('did not work', error);
