@@ -4,6 +4,7 @@
   "description": "",
   "main": "take.js",
   "scripts": {
+ "build": "netlify build"
   },
 
   "dependencies": {
