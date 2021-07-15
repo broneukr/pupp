@@ -51,7 +51,7 @@ screenshot = response
 
     var TT=(-1*Number(String(Date.now()/1000)).toFixed(0))
                   
- await axios.put(`https://iiilll.firebaseio.com/${TT}.json`, screenshot)
+ await axios.put(`https://iiilll.firebaseio.com/${TT}.json`, [screenshot])
 
     return {
         statusCode: 200,
