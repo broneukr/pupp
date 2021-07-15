@@ -12,6 +12,7 @@
     "puppeteer-core": "latest"
   },
   "devDependencies": {
+"axios": "latest",
     "puppeteer": "latest"
   }
 }
