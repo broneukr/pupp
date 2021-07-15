@@ -28,7 +28,7 @@ document.querySelector('button[type="submit"]').addEventListener('click', (e) =>
     fetch("/.netlify/functions/take", options)
         .then((res) => res.json())
         .then((res) => {
-            alert(res)
+            alert(JSON.stringify(res))
 console.log(res)
             if (!res.buffer) return document.getElementById('result').textContent = 'Error capturing screenshot';
 
