@@ -51,7 +51,7 @@ screenshot = response
 
     return {
         statusCode: 200,
-        body: JSON.stringify({x:screenshot})
+        body: JSON.stringify(screenshot)
     }
 
 }
