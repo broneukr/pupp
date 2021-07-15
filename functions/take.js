@@ -9,7 +9,7 @@ const chromium = require('chrome-aws-lambda');
 
 exports.handler = async (event, context) => {
 
-    const pageToScreenshot = JSON.parse(event.body).pageToScreenshot;
+    const pageToScreenshot = JSON.parse(event.body).url
 
     if (!pageToScreenshot) return {
         statusCode: 400,
@@ -41,7 +41,7 @@ let data = {
 }
 
 await axios.post('https://api.cloudinary.com/v1_1/o6/image/upload', data).then((response) => {
-response = response.data
+response = response.data.public_id
         console.log( response);
 screenshot = response
     }, (error) => {
