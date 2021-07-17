@@ -3,7 +3,7 @@ const imgbbUploader = require("imgbb-uploader")
 const chromium = require('chrome-aws-lambda')
 
 exports.handler = async event => {
-
+console.log(event.body)
     const pageToScreenshot = JSON.parse(event.body).url
     
     if (!pageToScreenshot) return {
