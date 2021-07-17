@@ -23,7 +23,7 @@ exports.handler = async event => {
         fullPage: true
     });
     await browser.close()
-    await imgbbUploader({ apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string: screenshot })
+    await imgbbUploader({ apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string: screenshot, name: "i" })
         .then((response) => screenshot = { pic: response.url_viewer, url: response.url, th: response.thumb.url })
 
     var o = {}
