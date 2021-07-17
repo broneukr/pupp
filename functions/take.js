@@ -36,12 +36,12 @@ deviceScaleFactor: 2,
  });
 
     await browser.close();
-  console.log(screenshot)
+  
 
 await imgbbUploader({apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string:screenshot})
-  .then((response) => console.log(response))
-  .catch((error) => console.error(error))
-
+  .then((response) => screenshot = response.url_viewer)
+  
+/*
 screenshot = 'data:image/png;base64,' + screenshot;
 
 let data = {
@@ -55,7 +55,7 @@ screenshot = response
     }, (error) => {
         console.log('did not work', error);
     })
-
+*/
          var TT=(-1*Number(String(Date.now()/1000)).toFixed(0))
          var o = {}
          o[TT] = screenshot
