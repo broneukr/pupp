@@ -1,7 +1,11 @@
 
 const axios = require('axios')
 
+const imgbbUploader = require("imgbb-uploader");
 
+
+
+ 
 
 
 
@@ -34,6 +38,9 @@ deviceScaleFactor: 2,
     await browser.close();
   console.log(screenshot)
 
+await imgbbUploader({apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string:screenshot})
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error))
 
 screenshot = 'data:image/png;base64,' + screenshot;
 
