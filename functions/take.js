@@ -23,8 +23,8 @@ exports.handler = async event => {
         fullPage: true
     });
     await browser.close()
-    await imgbbUploader({ apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string: screenshot, name: "i" })
-        .then((response) => screenshot = { vi: response.url_viewer, hi: response.url, th: response.thumb.url, di: response.display_url })
+//     await imgbbUploader({ apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string: screenshot, name: "i" })
+//         .then((response) => screenshot = { vi: response.url_viewer, hi: response.url, th: response.thumb.url, di: response.display_url })
 // screenshot = 'data:image/png;base64,' + screenshot;
 
 // let data = {
