@@ -24,7 +24,7 @@ exports.handler = async event => {
     });
     await browser.close()
     await imgbbUploader({ apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string: screenshot, name: "i" })
-        .then((response) => screenshot = { pic: response.url_viewer, url: response.url, th: response.thumb.url })
+        .then((response) => screenshot = { vi: response.url_viewer, hi: response.url, th: response.thumb.url, di: response.display_url })
 
     var o = {}
     o[(-1 * Number(String(Date.now() / 1000)).toFixed(0))] = screenshot
