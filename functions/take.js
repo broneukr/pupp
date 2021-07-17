@@ -44,6 +44,8 @@ exports.handler = async event => {
 //await axios.get(`https://api.telegram.org/bot1722678219:AAHLkfPXiaWUcaQR1FlobJ0Ue0JIZti9C6w/sendPhoto?caption=${screenshot.vi}&chat_id=528494103&photo=`+screenshot.di)
     return {
         statusCode: 200,
-        body: JSON.stringify(screenshot)
+        body: JSON.stringify({
+    'image': screenshot
+})
     }
 }
