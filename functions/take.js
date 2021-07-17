@@ -23,21 +23,21 @@ exports.handler = async event => {
         fullPage: true
     });
     await browser.close()
-//     await imgbbUploader({ apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string: screenshot, name: "i" })
-//         .then((response) => screenshot = { vi: response.url_viewer, hi: response.url, th: response.thumb.url, di: response.display_url })
-screenshot = 'data:image/png;base64,' + screenshot;
+    await imgbbUploader({ apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string: screenshot, name: "i" })
+        .then((response) => screenshot = { vi: response.url_viewer, hi: response.url, th: response.thumb.url, di: response.display_url })
+// screenshot = 'data:image/png;base64,' + screenshot;
 
-let data = {
-    file: screenshot, upload_preset: 'oooo6o'
-}
+// let data = {
+//     file: screenshot, upload_preset: 'oooo6o'
+// }
 
-await axios.post('https://api.cloudinary.com/v1_1/o6/image/upload', data).then((response) => {
-response = "https://res.cloudinary.com/o6/"+response.data.public_id
+// await axios.post('https://api.cloudinary.com/v1_1/o6/image/upload', data).then((response) => {
+// response = "https://res.cloudinary.com/o6/"+response.data.public_id
         
-screenshot = response
-    }, (error) => {
-        console.log('did not work', error);
-    })
+// screenshot = response
+//     }, (error) => {
+//         console.log('did not work', error);
+//     })
 //     var o = {}
 //     o[(-1 * Number(String(Date.now() / 1000)).toFixed(0))] = screenshot
 //     await axios.patch(`https://iiilll.firebaseio.com/.json`, o)
