@@ -1,69 +1,36 @@
-
 const axios = require('axios')
+const imgbbUploader = require("imgbb-uploader")
+const chromium = require('chrome-aws-lambda')
 
-const imgbbUploader = require("imgbb-uploader");
-
-
-
- 
-
-
-
-const chromium = require('chrome-aws-lambda');
-
-exports.handler = async (event, context) => {
+exports.handler = async event => {
 
     const pageToScreenshot = JSON.parse(event.body).url
-
+    
     if (!pageToScreenshot) return {
         statusCode: 400,
         body: JSON.stringify({ message: 'Page URL not defined' })
     }
-
     const browser = await chromium.puppeteer.launch({
-deviceScaleFactor: 2,
         args: chromium.args,
         defaultViewport: chromium.defaultViewport,
         executablePath: await chromium.executablePath,
         headless: chromium.headless,
     });
-    
     const page = await browser.newPage();
-
     await page.goto(pageToScreenshot, { waitUntil: 'networkidle2' });
+    var screenshot = await page.screenshot({
+        encoding: 'base64',
+        fullPage: true
+    });
+    await browser.close()
+    await imgbbUploader({ apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string: screenshot })
+        .then((response) => screenshot = { pic: response.url_viewer, url: response.url, th: response.thumb.url })
 
-    var screenshot = await page.screenshot({ encoding: 'base64', fullPage: true
- });
-
-    await browser.close();
-  
-
-await imgbbUploader({apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string:screenshot})
-  .then((response) => screenshot = response.url_viewer)
-  
-/*
-screenshot = 'data:image/png;base64,' + screenshot;
-
-let data = {
-    file: screenshot, upload_preset: 'o6oooo'
-}
-
-await axios.post('https://api.cloudinary.com/v1_1/o6/image/upload', data).then((response) => {
-response = "https://res.cloudinary.com/o6/"+response.data.public_id
-        console.log( response);
-screenshot = response
-    }, (error) => {
-        console.log('did not work', error);
-    })
-*/
-         var TT=(-1*Number(String(Date.now()/1000)).toFixed(0))
-         var o = {}
-         o[TT] = screenshot
-await axios.patch(`https://iiilll.firebaseio.com/.json`, o)
-
+    var o = {}
+    o[(-1 * Number(String(Date.now() / 1000)).toFixed(0))] = screenshot
+    await axios.patch(`https://iiilll.firebaseio.com/.json`, o)
     return {
         statusCode: 200,
         body: JSON.stringify(screenshot)
     }
-
 }
