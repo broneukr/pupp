@@ -12,7 +12,7 @@ exports.handler = async event => {
     }
     const browser = await chromium.puppeteer.launch({
         args: chromium.args,
-        deviceScaleFactor: 2,
+        
         executablePath: await chromium.executablePath,
         headless: chromium.headless,
     });
