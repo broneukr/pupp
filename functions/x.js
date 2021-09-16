@@ -1,6 +1,6 @@
 const { builder } = require("@netlify/functions");
 const chromium = require("chrome-aws-lambda");
-let size, aspectratio, zoom
+
 
 // async function im(image) {
 //  var details = {
