@@ -1,6 +1,7 @@
 const { builder } = require("@netlify/functions");
 const chromium = require("chrome-aws-lambda");
-
+const axios = require('axios')
+const imgbbUploader = require("imgbb-uploader")
 
 // async function im(image) {
 //  var details = {
