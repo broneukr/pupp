@@ -83,8 +83,8 @@ async function screenshot(url, format, viewportSize, dpr = 1, withJs = true) {
 async function handler(event, context) {
   // e.g. /https%3A%2F%2Fwww.11ty.dev%2F/small/1:1/smaller/
 console.log(event.path)
-  let url = event.path.split("app/")[1]//.filter(entry => !!entry);
-  //let [url, size, aspectratio, zoom] = pathSplit;
+  let url = event.path.slice(1)//[1]//.filter(entry => !!entry);
+  let [size, aspectratio, zoom] = []
 //url = url.replace("://","%3A%2F%2F").replace("/","%2F")
   let format = "jpeg"; // hardcoded for now
   let viewport = [];
