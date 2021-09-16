@@ -82,6 +82,7 @@ async function screenshot(url, format, viewportSize, dpr = 1, withJs = true) {
 
 // Based on https://github.com/DavidWells/netlify-functions-workshop/blob/master/lessons-code-complete/use-cases/13-returning-dynamic-images/functions/return-image.js
 async function handler(event, context) {
+    try {
   // e.g. /https%3A%2F%2Fwww.11ty.dev%2F/small/1:1/smaller/
 console.log(event.path)
   let url = event.path.slice(1)//[1]//.filter(entry => !!entry);
@@ -148,7 +149,7 @@ console.log(event.path)
 
   url = decodeURIComponent(url);
 
-  try {
+
     if(!isFullUrl(url)) {
       throw new Error(`Invalid \`url\`: ${url}`);
     }
@@ -174,7 +175,7 @@ var ss
 
     }
     //  isBase64Encoded: true
-    };
+    
   } catch (error) {
     console.log("Error", error);
 
