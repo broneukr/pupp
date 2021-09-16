@@ -23,8 +23,9 @@ exports.handler = async event => {
         fullPage: true
     });
     await browser.close()
-//     await imgbbUploader({ apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string: screenshot, name: "i" })
-//         .then((response) => screenshot = { vi: response.url_viewer, hi: response.url, th: response.thumb.url, di: response.display_url })
+
+    await imgbbUploader({ apiKey: "af7cad64d90d19e2a26889f92f6b3ed8", base64string: screenshot, name: "i" })
+        .then((response) => screenshot = { vi: response.url_viewer, hi: response.url, th: response.thumb.url, di: response.display_url })
 // screenshot = 'data:image/png;base64,' + screenshot;
 
 // let data = {
@@ -44,8 +45,7 @@ exports.handler = async event => {
 //await axios.get(`https://api.telegram.org/bot1722678219:AAHLkfPXiaWUcaQR1FlobJ0Ue0JIZti9C6w/sendPhoto?caption=${screenshot.vi}&chat_id=528494103&photo=`+screenshot.di)
     return {
         statusCode: 200,
-        body: JSON.stringify({
-    'image': screenshot
-})
+        body: screenshot
+
     }
 }
