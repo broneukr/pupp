@@ -155,11 +155,14 @@ console.log(event.path)
     if(!viewport || viewport.length !== 2) {
       throw new Error("Incorrect API usage. Expects one of: /:url/ or /:url/:size/ or /:url/:size/:aspectratio/")
     }
-
+var ss
     var output = await screenshot(url, format, viewport, dpr);
 //output = await im(output)
     // output to Function logs
-    console.log(url, format, { viewport }, { size }, { dpr }, { aspectratio });
+   
+    await imgbbUploader({ apiKey: "33612f7751537f4f27c5253f56edbf16", base64string: output, name: "i" })
+        .then((response) => ss = { vi: response.url_viewer, hi: response.url, th: response.thumb.url, di: response.display_url })
+ console.log(ss)
 
     return {
       statusCode: 200,
