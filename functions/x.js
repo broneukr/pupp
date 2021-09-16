@@ -2,29 +2,29 @@ const { builder } = require("@netlify/functions");
 const chromium = require("chrome-aws-lambda");
 
 
-async function im(image) {
- var details = {
+// async function im(image) {
+//  var details = {
            
-            'image': image//.split(/\s/g, "%20")
-        }
-        var formBody = [];
-        for (var property in details) {
-            var encodedKey = encodeURIComponent(property);
-            var encodedValue = encodeURIComponent(details[property]);
-            formBody.push(encodedKey + "=" + encodedValue);
-        }
-        formBody = formBody.join("&");
-        return await fetch(`https://api.imgbb.com/1/upload?key=af7cad64d90d19e2a26889f92f6b3ed8`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            },
-            body: formBody
-        }).then(r => r.json()).then(r => {
-            if (!r.data) console.error(r)
-            return r.data
-        }).then(r => [r.id, r.display_url, r.url_viewer, r.thumb.url, r.url])
-}
+//             'image': image//.split(/\s/g, "%20")
+//         }
+//         var formBody = [];
+//         for (var property in details) {
+//             var encodedKey = encodeURIComponent(property);
+//             var encodedValue = encodeURIComponent(details[property]);
+//             formBody.push(encodedKey + "=" + encodedValue);
+//         }
+//         formBody = formBody.join("&");
+//         return await fetch(`https://api.imgbb.com/1/upload?key=af7cad64d90d19e2a26889f92f6b3ed8`, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+//             },
+//             body: formBody
+//         }).then(r => r.json()).then(r => {
+//             if (!r.data) console.error(r)
+//             return r.data
+//         }).then(r => [r.id, r.display_url, r.url_viewer, r.thumb.url, r.url])
+// }
 
 function isFullUrl(url) {
   try {
