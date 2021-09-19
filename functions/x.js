@@ -169,13 +169,18 @@ var ss
 
     return {
       statusCode: 200,
-      headers: {
-        "content-type": `application/json;charset=UTF-8`
-      },
-      body: JSON.stringify(ss, null, 4)
+//       headers: {
+//         "content-type": `application/json;charset=UTF-8`
+//       },
+//       body: JSON.stringify(ss, null, 4)
 
+//     }
+      headers: {
+        "content-type": `image/png`
+      },
+      body: output,
+   isBase64Encoded: true
     }
-    //  isBase64Encoded: true
     
   } catch (error) {
     console.log("Error", error);
