@@ -86,6 +86,7 @@ async function handler(event, context) {
   // e.g. /https%3A%2F%2Fwww.11ty.dev%2F/small/1:1/smaller/
 console.log(event.path)
   let url = event.path.slice(1)//[1]//.filter(entry => !!entry);
+url = "https://"+url
   let [size, aspectratio, zoom] = []
 //url = url.replace("://","%3A%2F%2F").replace("/","%2F")
   let format = "jpeg"; // hardcoded for now
